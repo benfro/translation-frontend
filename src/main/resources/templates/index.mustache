@@ -4,17 +4,21 @@
 
 <div class="jobs">
 
-    {{#articles}}
+    {{#jobs}}
         <section>
             <header class="article-header">
-                <h2 class="article-title"><a href="/article/{{slug}}">{{title}}</a></h2>
-                <div class="article-meta">By  <strong>{{author.firstname}}</strong>, on <strong>{{addedAt}}</strong></div>
+                <h2 class="article-title"><a href="/job/{{slug}}">{{title}}</a></h2>
+                <div class="article-meta">By  <strong>None</strong>, on <strong>{{addedAt}}</strong></div>
             </header>
             <div class="article-description">
-                {{headline}}
+                {{description}}
             </div>
         </section>
-    {{/articles}}
-</div>changelog-master.xml
+    {{/jobs}}
+    {{^jobs}}
+        <h3>No Jobs to display</h3>
+    {{/jobs}}
+
+</div>
 
 {{> footer}}

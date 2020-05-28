@@ -12,18 +12,18 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.server.ResponseStatusException
 
 @Controller
-class HtmlController(private val repository: JobRepository) {
+class HtmlController(private val jobRepository: JobRepository) {
 
     @GetMapping("/")
     fun index(model: Model): String {
         model["title"] = "Welcome to Translation Front End Application"
-        model["articles"] = repository.findAllByOrderByAddedAtDesc().map { it.render() }
+        model["jobs"] = jobRepository.findAllByOrderByAddedAtDesc().map { it.render() }
         return "index"
     }
 
     @GetMapping("/job/{slug}")
-    fun job(@PathVariable slug: String, model: Model): String {
-        val job = repository
+    fun displayJob(@PathVariable slug: String, model: Model): String {
+        val job = jobRepository
                 .findBySlug(slug)
                 ?.render()
                 ?: throw ResponseStatusException(HttpStatus.NOT_FOUND, "This job does not exist")
