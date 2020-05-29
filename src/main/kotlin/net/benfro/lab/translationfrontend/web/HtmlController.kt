@@ -35,13 +35,15 @@ class HtmlController(private val jobRepository: JobRepository) {
     fun Job.render() = RenderedJob(
             slug,
             title,
-            addedAt.format()
+            addedAt.format(),
+            description
     )
 
     data class RenderedJob(
             val slug: String,
             val title: String,
-            val addedAt: String
+            val addedAt: String,
+            val description: String? = "<No description available>"
             //val author: Translator
     )
 }
