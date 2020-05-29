@@ -13,7 +13,7 @@ class User (
         var lastName: String,
         var email: String,
         private var password: String,
-        @ManyToMany val roles: Set<Role> = mutableSetOf(),
+        @ManyToMany val roles: MutableSet<Role> = mutableSetOf(),
         var validFrom: LocalDateTime? = null,
         var validTo: LocalDateTime? = null,
         var locked: Boolean? = false,
@@ -59,32 +59,12 @@ class User (
      * This side handles the relation
      */
     fun addRole(role: Role) {
-        roles.plus(role)
-        role.users.plus(this)
+        roles.add(role)
+        role.users.add(this)
     }
 
     fun removeRole(role: Role) {
-        roles.minus(role)
-        role.users.minus(this)
+        roles.remove(role)
+        role.users.remove(this)
     }
-}
-
-@Entity
-class Role (
-        var role: String,
-        @ManyToMany val users: Set<User> = mutableSetOf(),
-        @ManyToMany  val authorities: Set<Authority> = mutableSetOf(),
-        @Id @GeneratedValue(strategy = GenerationType.IDENTITY) var id: Long? = null
-)
-
-@Entity
-class Authority(
-        var auth: String,
-        @ManyToMany val roles: Set<Role> = mutableSetOf(),
-        @Id @GeneratedValue(strategy = GenerationType.IDENTITY) var id: Long? = null
-) : GrantedAuthority {
-    override fun getAuthority(): String {
-        return auth
-    }
-
 }
