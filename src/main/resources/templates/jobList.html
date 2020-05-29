@@ -17,8 +17,8 @@
 <div class="container">
     <h1>Job List</h1>
     <div class="row">
-        <div class="col-md-4">
-            <table id="customerTable" class="table">
+        <div class="col-md-5">
+            <table id="jobTable" class="table">
                 <thead>
                 <tr>
                     <th>No</th>
@@ -31,7 +31,7 @@
                 <tbody>
                 <tr th:each="job, rowStat: ${jobs}">
                     <td th:text="${rowStat.count}">1</td>
-                    <td th:text="${job.title}">Job titlr</td>
+                    <td th:text="${job.title}">Job title</td>
                     <td th:text="${job.addedAt}">Added at</td>
                     <td th:text="${job.description}">Desc</td>
                     <td><a th:href="@{/job/{slug}(slug=${job.slug})}">XXX</a></td>
