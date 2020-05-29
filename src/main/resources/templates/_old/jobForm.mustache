@@ -1,0 +1,13 @@
+{{> snippet/header}}
+
+<h2>Create new Job</h2>
+
+<div class="job-form">
+    <form name="job" action="/job/new" method="post">
+        Name: <input type="text" name="job.title"/>{{job.title}}<br/>
+        Surname: <input type="text" name="job.description"/><br/>
+        <input type="submit" value="Save"/>
+    </form>
+</div>
+
+{{> snippet/footer}}

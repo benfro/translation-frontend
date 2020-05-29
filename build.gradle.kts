@@ -33,7 +33,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-batch")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-mail")
-	implementation("org.springframework.boot:spring-boot-starter-mustache")
+	//implementation("org.springframework.boot:spring-boot-starter-mustache")
+	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
 	implementation("org.springframework.boot:spring-boot-starter-quartz")
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-web")
@@ -52,6 +53,8 @@ dependencies {
 	testImplementation("org.springframework.batch:spring-batch-test")
 	testImplementation("org.springframework.security:spring-security-test")
 	implementation("org.hibernate:hibernate-java8")
+	implementation("org.webjars:webjars-locator:0.40")
+	implementation("org.webjars:bootstrap:4.4.1-1")
 
 }
 
