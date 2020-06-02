@@ -9,11 +9,11 @@ import kotlin.streams.toList
 @Entity
 class User (
         private var username: String,
+        private var password: String,
         var firstName: String,
         var lastName: String,
         var email: String,
-        private var password: String,
-        @ManyToMany val roles: MutableSet<Role> = mutableSetOf(),
+        @ManyToMany @JoinTable(name = "USER_ROLE") val roles: MutableSet<Role> = mutableSetOf(),
         var validFrom: LocalDateTime? = null,
         var validTo: LocalDateTime? = null,
         var locked: Boolean? = false,

@@ -5,8 +5,8 @@ import javax.persistence.*
 @Entity
 class Role (
         var role: String,
-        @ManyToMany val users: MutableSet<User> = mutableSetOf(),
-        @ManyToMany val authorities: MutableSet<Authority> = mutableSetOf(),
+        @ManyToMany(mappedBy = "roles") val users: MutableSet<User> = mutableSetOf(),
+        @ManyToMany @JoinTable(name = "ROLE_AUTHORITY") val authorities: MutableSet<Authority> = mutableSetOf(),
         @Id @GeneratedValue(strategy = GenerationType.IDENTITY) var id: Long? = null
 ) {
     companion object Factory {
