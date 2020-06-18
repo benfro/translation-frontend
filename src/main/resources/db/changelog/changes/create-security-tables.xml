@@ -40,18 +40,18 @@
             </column>
         </createTable>
         <createTable tableName="user_role">
-            <column name="user_id" type="INT">
+            <column name="users_id" type="INT">
                 <constraints nullable="false"/>
             </column>
-            <column name="role_id" type="INT">
+            <column name="roles_id" type="INT">
                 <constraints nullable="false"/>
             </column>
         </createTable>
         <createTable tableName="role_authority">
-            <column name="role_id" type="INT">
+            <column name="roles_id" type="INT">
                 <constraints nullable="false"/>
             </column>
-            <column name="authority_id" type="INT">
+            <column name="authorities_id" type="INT">
                 <constraints nullable="false"/>
             </column>
         </createTable>
